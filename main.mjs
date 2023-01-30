@@ -1,5 +1,7 @@
 // consigue las funciones exportadas
-import { instanciar, draw, reportArea, reportPerimeter } from './circle.mjs';
+import { instanciar, draw, reportArea, reportPerimeter } from './arciris.mjs';
+import { instanciarCercle, drawCercle, randInt } from './cercle.mjs';
+
 // consigues el canvas del html
 var canva1 = document.getElementById("myCanvas1");
 
@@ -12,13 +14,23 @@ reportArea(circle1.grosor);
 //Deberia pasar un parametro del objecto  y calcular llamando la funcion
 reportPerimeter(circle1.grosor);
 
-
-//lo hago cada "3" porque el grosor es "3", Si el grosor es 2, lo haria cada 2
-let iris = 10;
+//Posicio del primer color del arc irisen width
+let irisPosition = 100;
+//grosor de la linea del arc iris
+let lineWidth = 15;
+//Per cada color genera un cercle
 for (let i = 0; i < colors.length; i++) {
-    //No se sobrescriben porque cada circulo esta en un "iris" "center" o "grandaria" diferente como quieras llamarlo
-    let circle = instanciar(iris, colors[i]);
+    //Crea un cercle en la primera posicio, el primer color i el grosor delinea
+    let circle = instanciar(irisPosition, colors[i], lineWidth);
     //Por cada circulo nuevo creado le digo que lo aplica EN EL MISMO CANVA
     draw(circle, canva1);
-    iris = iris + 3;
+    irisPosition = irisPosition + circle.grosor;
 }
+
+//Genera cercles en posicions al atzar
+var canva2 = document.getElementById("myCanvas2");
+for (let i = 0; i < 10; i++) {
+    let circle2 = instanciarCercle(randInt(100,400),randInt(100,400), 70);
+    drawCercle(circle2,canva2);    
+}
+

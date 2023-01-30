@@ -1,12 +1,12 @@
 const name = 'circle';
 //Voy a crear un circulo con lo basico
-function instanciar(iris, color) {
+function instanciar(iris, color, grosor) {
     return {
-        posx: 100,
-        posY: 75,
+        posx: 400,
+        posY: 400,
         //Esto lo consegui con luis, es para hacer el medio arco iris teniendo esa forma
         grau: 1 * Math.PI,
-        grosor: 3,
+        grosor: grosor,
         //Iris es como la grandaria del siguiente, por eso varia
         iris: iris,
         // Y el color tambien varia
@@ -21,7 +21,7 @@ function draw(objCercle, canvaCircle) {
     //todos los valores del ctx seran definidos en el OBJ Cercle
     ctx.lineWidth = objCercle.grosor; // el tamaña de linea
     ctx.strokeStyle = objCercle.color; // el color de la linea
-    ctx.arc(objCercle.posx, objCercle.posY, objCercle.iris, objCercle.grau, 0); // la posicion del arco
+    ctx.arc(objCercle.posx, objCercle.posY, objCercle.iris, objCercle.grau, false); // la posicion del arco
     ctx.stroke();
     //Devuelve ese ctx para luego aplicarlo en el main
     return ctx;
