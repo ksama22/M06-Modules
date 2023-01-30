@@ -26,10 +26,11 @@ function draw(objCercle, canvaCircle) {
     //Devuelve ese ctx para luego aplicarlo en el main
     return ctx;
 }
-//No tengo ni puta idea xd, es un report  pero me da palo calcular
+//Es un reportArea 
 function reportArea(length) {
     console.log("Pero que area quieres si es un semicirculo");
 }
+//Es un Perimetro
 function reportPerimeter(length) {
     console.log(4 * length);
 }
